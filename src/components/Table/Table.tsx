@@ -5,6 +5,7 @@ import PeopleIcon from "@material-ui/icons/People";
 
 import "./table.scss";
 
+// declared types for easier references
 type TableData = {
   id: number;
   employeeId: string;
@@ -46,6 +47,7 @@ const Table: React.FC = () => {
     },
   ]);
 
+  // getting data from json
   const getData = async () => {
     const response = await fetch(
       `https://gist.githubusercontent.com/yousifalraheem/354fb07f27f3c145b78d7a5cc1f0da0b/raw/7561f6827775c6a002a93b6b99b12c3c9454a617/data.json`
@@ -60,6 +62,8 @@ const Table: React.FC = () => {
     return jsonData;
   };
 
+  // code was repetitive, and this function is used
+  // by all columns to sort column contents based on given columnName
   const sortColumnContents = (
     columnName: string,
     key: string,
@@ -96,6 +100,7 @@ const Table: React.FC = () => {
     setTableData([...sortedData]);
   };
 
+  // to be able to differentiate between other columns
   const getIcon = (columnName: string) => {
     const column: SortColumn = sortDescending.find((item: SortColumn) => {
       return item.columnName === columnName;
@@ -108,6 +113,7 @@ const Table: React.FC = () => {
     }
   };
 
+  // dynamically sort then take highest earning
   const highestEarning = () => {
     const data = [...tableData]
       .sort((a: TableData, b: TableData) => {
@@ -118,6 +124,7 @@ const Table: React.FC = () => {
     return data ? `${data?.firstname} ${data?.lastname}` : "-";
   };
 
+  // dynamically sort then take latest date
   const recentlyJoined = () => {
     const data = [...tableData]
       .sort((a: TableData, b: TableData) => {
@@ -130,6 +137,8 @@ const Table: React.FC = () => {
     return data ? `${data?.firstname} ${data?.lastname}` : "-";
   };
 
+  // declared headers in an array, instead of
+  // declaring in HTML
   const headerCells: Header[] = [
     {
       name: "Full Name",
@@ -154,6 +163,8 @@ const Table: React.FC = () => {
     },
   ];
 
+  // firstly initialise the component's state value
+  // so that the table is able to populate itself
   React.useEffect(() => {
     getData();
   }, []);
