@@ -1,0 +1,124 @@
+@import url("bootstrap");
+
+$border-radius: 10px;
+$background-color: #372f4b;
+
+.tableComponent {
+  height: 30rem;
+  width: 70%;
+  position: relative;
+
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8888;
+  }
+
+  > .details {
+    height: 20%;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+
+    > .numberOfPeople,
+    > .employeeDetails {
+      padding: 20px;
+      border: 1px solid;
+      border-radius: $border-radius;
+      background-color: $background-color;
+      color: white;
+    }
+
+    > .numberOfPeople {
+      display: flex;
+      align-items: center;
+      width: 30%;
+      justify-content: space-around;
+
+      > .peopleIcon {
+        height: 100%;
+        width: 50%;
+        fill: white;
+      }
+    }
+
+    > .employeeDetails {
+      width: 65%;
+      > table {
+        > tr {
+          > td:first-child {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  > .tableHeader {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background: $background-color;
+    color: white;
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+
+    > div {
+      > div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  > .tableBody {
+    height: 75%;
+    overflow-y: scroll;
+    border: 1px solid #372f4b;
+    border-top: none;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+
+    > div:not(:last-child) {
+      border-bottom: 1px solid gray;
+    }
+
+    > div:nth-child(odd) {
+      background: rgba(55, 47, 75, 0.07);
+    }
+  }
+
+  > .tableHeader,
+  > .tableBody {
+    > div {
+      display: flex;
+      text-align: center;
+      width: 100%;
+
+      > div {
+        // border: 1px solid black;
+        padding: 10px 0;
+      }
+
+      > div:first-child {
+        width: 40%;
+      }
+
+      > div:nth-child(2),
+      div:last-child {
+        width: 30%;
+      }
+    }
+  }
+}
