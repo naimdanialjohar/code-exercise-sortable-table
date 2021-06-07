@@ -1,3 +1,5 @@
+Please run `yarn install` first before anything else to install the necessary packages.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
