@@ -1,0 +1,14 @@
+
+.landingPage {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow-y: scroll;
+
+    > .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;  
+      height: 100%;
+    }
+}
